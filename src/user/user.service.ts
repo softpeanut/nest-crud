@@ -42,4 +42,9 @@ export class UserService {
         await this.userRepository.save(user);
         return "success update";
     }
+    
+    async deleteUser(userId: number) {
+        this.userRepository.delete(userId);
+        return "success delete";
+    }
 }

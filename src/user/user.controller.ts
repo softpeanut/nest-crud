@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { PostDto } from './dto/post.dto';
@@ -26,6 +26,11 @@ export class UserController {
     @Patch()
     updateUserWithQueryString(@Query('userId') userId: number, @Body() dto: UpdateDto): Promise<string> {
         return this.userService.updateUser(userId, dto);
+    }
+
+    @Delete(':userId')
+    deleteUser(@Param('userId') userId: number): Promise<string> {
+        return this.userService.deleteUser(userId);
     }
 
 }
