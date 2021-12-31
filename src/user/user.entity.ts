@@ -21,5 +21,5 @@ export class User {
 
   @Column({ length: 40, unique: true })
   email: string;
-  
+
 }
